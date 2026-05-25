@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before Ages | Private Confidential Listening Experience</title>
+
+  <meta
+    name="description"
+    content="Before Ages offers a discreet and confidential listening experience for leaders, founders, high-net-worth individuals, and those carrying emotional responsibility."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0A0A0A;
+      color:#F5F5F4;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    ::selection{
+      background:#C6A664;
+      color:#000;
+    }
+
+    h1,h2,h3,h4{
+      font-family:'Playfair Display',serif;
+      font-weight:600;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:90%;
+      max-width:1400px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      padding:28px 0;
+      transition:0.4s ease;
+    }
+
+    nav.scrolled{
+      background:rgba(0,0,0,0.75);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-wrapper{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      font-size:28px;
+      font-family:'Playfair Display',serif;
+      letter-spacing:1px;
+      color:#fff;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:40px;
+    }
+
+    .nav-links a{
+      color:#d1d5db;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#C6A664;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.82)),
+      url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1974&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.05);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:90%;
+      max-width:1000px;
+      animation:fadeUp 1.2s ease;
+    }
+
+    .hero-subtitle{
+      color:#C6A664;
+      letter-spacing:4px;
+      font-size:13px;
+      margin-bottom:22px;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      font-size:82px;
+      line-height:1.1;
+      margin-bottom:28px;
+      font-weight:700;
+    }
+
+    .hero p{
+      max-width:800px;
+      margin:auto;
+      color:#d1d5db;
+      font-size:20px;
+      line-height:1.9;
+    }
+
+    .hero-buttons{
+      margin-top:50px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .btn{
+      padding:18px 38px;
+      border:none;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:600;
+      transition:0.4s;
+      letter-spacing:0.5px;
+    }
+
+    .btn-primary{
+      background:#C6A664;
+      color:#000;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+      background:#d8ba7c;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:1px solid #C6A664;
+      color:#C6A664;
+    }
+
+    .btn-secondary:hover{
+      background:#C6A664;
+      color:#000;
+      transform:translateY(-4px);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:130px 0;
+      position:relative;
+    }
+
+    .section-title{
+      font-size:54px;
+      margin-bottom:30px;
+      line-height:1.3;
+    }
+
+    .section-text{
+      font-size:18px;
+      color:#d1d5db;
+      line-height:2;
+      max-width:850px;
+    }
+
+    .center{
+      text-align:center;
+      margin:auto;
+    }
+
+    /* ABOUT */
+
+    .about{
+      background:#0F0F0F;
+    }
+
+    .about-box{
+      padding:70px;
+      border:1px solid rgba(255,255,255,0.05);
+      background:rgba(255,255,255,0.02);
+      backdrop-filter:blur(10px);
+    }
+
+    /* EXPERIENCE */
+
+    .experience-grid{
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .experience-card{
+      background:#111827;
+      padding:50px 40px;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:0.4s;
+    }
+
+    .experience-card:hover{
+      transform:translateY(-10px);
+      border-color:#C6A664;
+    }
+
+    .experience-card h3{
+      margin-bottom:20px;
+      color:#C6A664;
+      font-size:30px;
+    }
+
+    .experience-card p{
+      color:#d1d5db;
+      line-height:1.9;
+      font-size:16px;
+    }
+
+    /* WHO */
+
+    .who{
+      background:#111827;
+    }
+
+    .who-grid{
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
+    }
+
+    .who-item{
+      padding:30px;
+      border:1px solid rgba(255,255,255,0.06);
+      text-align:center;
+      font-size:20px;
+      transition:0.3s;
+    }
+
+    .who-item:hover{
+      background:#C6A664;
+      color:#000;
+    }
+
+    /* PROCESS */
+
+    .timeline{
+      margin-top:80px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .timeline-step{
+      padding:40px;
+      border-left:2px solid #C6A664;
+      background:#111;
+    }
+
+    .step-number{
+      color:#C6A664;
+      font-size:14px;
+      letter-spacing:3px;
+      margin-bottom:20px;
+      text-transform:uppercase;
+    }
+
+    .timeline-step h3{
+      margin-bottom:16px;
+      font-size:28px;
+    }
+
+    .timeline-step p{
+      color:#d1d5db;
+      line-height:1.9;
+    }
+
+    /* PRIVACY */
+
+    .privacy{
+      background:
+      linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.85)),
+      url('https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1974&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+
+    /* PHILOSOPHY */
+
+    .philosophy{
+      background:#0F172A;
+    }
+
+    .quote{
+      font-size:34px;
+      line-height:1.8;
+      font-family:'Playfair Display',serif;
+      color:#F5F5F4;
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+    }
+
+    /* DISCLAIMER */
+
+    .disclaimer-box{
+      margin-top:50px;
+      padding:50px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:#111;
+    }
+
+    .disclaimer-box p{
+      line-height:2;
+      color:#d1d5db;
+      margin-bottom:20px;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+      background:
+      linear-gradient(rgba(0,0,0,0.82),rgba(0,0,0,0.86)),
+      url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1974&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
+
+    .cta h2{
+      font-size:72px;
+      max-width:1000px;
+      margin:auto;
+      line-height:1.3;
+      margin-bottom:40px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:80px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+      text-align:center;
+      background:#050505;
+    }
+
+    footer h3{
+      font-size:34px;
+      margin-bottom:15px;
+    }
+
+    footer p{
+      color:#9CA3AF;
+      margin-bottom:30px;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+
+    .footer-links a{
+      color:#d1d5db;
+      transition:0.3s;
+    }
+
+    .footer-links a:hover{
+      color:#C6A664;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:992px){
+
+      .hero h1{
+        font-size:58px;
+      }
+
+      .section-title{
+        font-size:42px;
+      }
+
+      .cta h2{
+        font-size:48px;
+      }
+
+      .nav-links{
+        gap:20px;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        padding:22px 0;
+      }
+
+      .nav-wrapper{
+        flex-direction:column;
+        gap:18px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+
+      .about-box{
+        padding:40px 30px;
+      }
+
+      .quote{
+        font-size:26px;
+      }
+
+      .cta h2{
+        font-size:38px;
+      }
+
+      .disclaimer-box{
+        padding:35px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav id="navbar">
+    <div class="container nav-wrapper">
+
+      <div class="logo">
+        Before Ages
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-subtitle">
+        PRIVATE CONFIDENTIAL LISTENING
+      </div>
+
+      <h1>
+        A Private Space To Be Heard.
+      </h1>
+
+      <p>
+        Confidential listening for individuals who carry
+        immense responsibility, influence, and emotional weight.
+        In a world where everyone speaks,
+        we create a space where you can simply be heard.
+      </p>
+
+      <div class="hero-buttons">
+
+        <button class="btn btn-primary">
+          Request Private Access
+        </button>
+
+        <button class="btn btn-secondary">
+          Schedule A Conversation
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="about-box center">
+
+        <h2 class="section-title">
+          In A World Full Of Noise,<br>
+          Few Truly Listen.
+        </h2>
+
+        <p class="section-text center">
+          Most people seek answers.
+          We offer presence.
+          <br><br>
+          No judgment.
+          No unsolicited advice.
+          No performance.
+          <br><br>
+          Just a deeply private human conversation designed for individuals who rarely find a neutral and confidential space to speak freely.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <div class="container">
+
+      <div class="center">
+
+        <h2 class="section-title">
+          The Before Ages Experience
+        </h2>
+
+        <p class="section-text center">
+          Every detail is designed around emotional privacy,
+          dignity, discretion, and human presence.
+        </p>
+
+      </div>
+
+      <div class="experience-grid">
+
+        <div class="experience-card">
+
+          <h3>Confidentiality</h3>
+
+          <p>
+            Every interaction remains private, discreet,
+            and protected with the highest respect for personal dignity.
+          </p>
+
+        </div>
+
+        <div class="experience-card">
+
+          <h3>Presence</h3>
+
+          <p>
+            Undivided attention without interruption,
+            advice, diagnosis, or judgment.
+          </p>
+
+        </div>
+
+        <div class="experience-card">
+
+          <h3>Exclusivity</h3>
+
+          <p>
+            Designed for leaders, founders, creators,
+            public figures, and individuals carrying emotional pressure.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHO -->
+
+  <section class="who">
+
+    <div class="container">
+
+      <div class="center">
+
+        <h2 class="section-title">
+          Who This Is For
+        </h2>
+
+        <p class="section-text center">
+          Those who are constantly expected to stay strong often have nowhere to simply speak.
+        </p>
+
+      </div>
+
+      <div class="who-grid">
+
+        <div class="who-item">Founders</div>
+        <div class="who-item">CEOs</div>
+        <div class="who-item">Investors</div>
+        <div class="who-item">Public Figures</div>
+        <div class="who-item">Diplomats</div>
+        <div class="who-item">Artists</div>
+        <div class="who-item">Executives</div>
+        <div class="who-item">Visionaries</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="center">
+
+        <h2 class="section-title">
+          The Experience Process
+        </h2>
+
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-step">
+
+          <div class="step-number">
+            STEP 01
+          </div>
+
+          <h3>Request Access</h3>
+
+          <p>
+            Begin with a discreet and confidential inquiry.
+          </p>
+
+        </div>
+
+        <div class="timeline-step">
+
+          <div class="step-number">
+            STEP 02
+          </div>
+
+          <h3>Private Screening</h3>
+
+          <p>
+            We ensure every interaction aligns with our values of dignity and respect.
+          </p>
+
+        </div>
+
+        <div class="timeline-step">
+
+          <div class="step-number">
+            STEP 03
+          </div>
+
+          <h3>Listening Session</h3>
+
+          <p>
+            A deeply private conversation space focused entirely on listening.
+          </p>
+
+        </div>
+
+        <div class="timeline-step">
+
+          <div class="step-number">
+            STEP 04
+          </div>
+
+          <h3>Continued Access</h3>
+
+          <p>
+            Ongoing confidential conversations if desired.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRIVACY -->
+
+  <section class="privacy" id="privacy">
+
+    <div class="container">
+
+      <div class="center">
+
+        <h2 class="section-title">
+          Privacy Is Not A Feature.<br>
+          It Is The Foundation.
+        </h2>
+
+        <p class="section-text center">
+          No recordings.
+          No public testimonials.
+          No exposure.
+          <br><br>
+          Every conversation is approached with confidentiality,
+          emotional dignity, and human respect.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PHILOSOPHY -->
+
+  <section class="philosophy">
+
+    <div class="container">
+
+      <p class="quote">
+        “Before Ages was created from a simple realization:
+        the more powerful a person becomes,
+        the fewer spaces remain where they can speak freely
+        without expectation, strategy, or performance.”
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- DISCLAIMER -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="center">
+
+        <h2 class="section-title">
+          Disclaimer & Legal Note
+        </h2>
+
+      </div>
+
+      <div class="disclaimer-box">
+
+        <p>
+          Before Ages is a private listening service.
+          We are not therapists, psychologists, psychiatrists,
+          or medical professionals.
+        </p>
+
+        <p>
+          We do not provide psychological, psychiatric,
+          legal, or medical advice.
+        </p>
+
+        <p>
+          Clients experiencing emergencies or crises should immediately contact local emergency services or licensed professionals.
+        </p>
+
+        <p>
+          This service operates in alignment with principles of human dignity,
+          privacy, and freedom of expression.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <div class="container">
+
+      <h2>
+        True luxury is not being heard by many.
+        <br><br>
+        It is being deeply listened to by one.
+      </h2>
+
+      <button class="btn btn-primary">
+        Request Confidential Access
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <div class="container">
+
+      <h3>Before Ages</h3>
+
+      <p>
+        Private. Confidential. Human.
+      </p>
+
+      <div class="footer-links">
+
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Contact</a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+
+    // NAVBAR SCROLL EFFECT
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+      if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+      } else{
+        navbar.classList.remove("scrolled");
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
